@@ -54,8 +54,8 @@ An [etcd](https://github.com/etcd-io/etcd) (API v3) client for Rust backed by [t
 `ya-etcd-rs`'s MSRV is `1.75`.
 
 ```bash
-$ rustup update
-$ cargo build
+rustup update
+cargo build
 ```
 
 ## Usage

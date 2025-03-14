@@ -1,7 +1,7 @@
-use ya_etcd_rs::{Client, ClientConfig, KeyRange, KeyValueOp, Result, WatchInbound, WatchOp};
+use ya_etcd_rs::{Client, ClientConfig, KeyRange, KeyValueOp, WatchInbound, WatchOp};
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cli = Client::new(ClientConfig::new([
         "http://127.0.0.1:12379".into(),
         "http://127.0.0.1:22379".into(),

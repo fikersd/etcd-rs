@@ -1,8 +1,8 @@
 use std::time::Duration;
 
-use ya_etcd_rs::{Client, ClientConfig, KeyRange, KeyValueOp, LeaseOp, PutRequest, Result};
+use ya_etcd_rs::{Client, ClientConfig, KeyRange, KeyValueOp, LeaseOp, PutRequest};
 
-async fn put(cli: &Client) -> Result<()> {
+async fn put(cli: &Client) -> Result<(), Box<ya_etcd_rs::Error>> {
     cli.put(("foo", "bar")).await.expect("put kv");
     let resp = cli.get("foo").await.expect("get kv");
 
@@ -13,7 +13,7 @@ async fn put(cli: &Client) -> Result<()> {
     Ok(())
 }
 
-async fn put_with_lease(cli: &Client) -> Result<()> {
+async fn put_with_lease(cli: &Client) -> Result<(), Box<ya_etcd_rs::Error>> {
     let lease = cli
         .grant_lease(Duration::from_secs(10))
         .await
@@ -25,7 +25,7 @@ async fn put_with_lease(cli: &Client) -> Result<()> {
     Ok(())
 }
 
-async fn get(cli: &Client) -> Result<()> {
+async fn get(cli: &Client) -> Result<(), Box<ya_etcd_rs::Error>> {
     cli.get(KeyRange::range("start", "end"))
         .await
         .expect("get range kvs");
@@ -43,7 +43,7 @@ async fn get(cli: &Client) -> Result<()> {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cli = Client::new(ClientConfig::new([
         "http://127.0.0.1:12379".into(),
         "http://127.0.0.1:22379".into(),
