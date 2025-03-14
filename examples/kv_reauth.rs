@@ -1,9 +1,9 @@
 use std::time::Duration;
 
 use tokio::time::sleep;
-use ya_etcd_rs::{Client, ClientConfig, KeyValueOp, Result};
+use ya_etcd_rs::{Client, ClientConfig, KeyValueOp};
 
-async fn put_with_sleep(cli: &Client, secs: u64) -> Result<()> {
+async fn put_with_sleep(cli: &Client, secs: u64) -> Result<(), Box<ya_etcd_rs::Error>> {
     cli.put(("foo", "bar")).await.expect("put kv");
     let resp = cli.get("foo").await.expect("get kv");
 
@@ -19,7 +19,7 @@ async fn put_with_sleep(cli: &Client, secs: u64) -> Result<()> {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cfg = ClientConfig::new(
         [
             "http://127.0.0.1:12379".into(),

@@ -1,7 +1,7 @@
-use ya_etcd_rs::{Client, ClientConfig, Endpoint, KeyValueOp, Result};
+use ya_etcd_rs::{Client, ClientConfig, Endpoint, KeyValueOp};
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cli = Client::new(ClientConfig::new([
         Endpoint::from("http://127.0.0.1:12379")
             .tls(

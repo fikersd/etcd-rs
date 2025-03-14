@@ -1,6 +1,6 @@
-use ya_etcd_rs::{AuthOp, AuthRoleAddRequest, AuthRoleDeleteRequest, Client, ClientConfig, Result};
+use ya_etcd_rs::{AuthOp, AuthRoleAddRequest, AuthRoleDeleteRequest, Client, ClientConfig};
 
-async fn role(cli: &Client) -> Result<()> {
+async fn role(cli: &Client) -> Result<(), Box<ya_etcd_rs::Error>> {
     cli.role_add(AuthRoleAddRequest::new("foo_role"))
         .await
         .expect("role add");
@@ -17,7 +17,7 @@ async fn role(cli: &Client) -> Result<()> {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cfg = ClientConfig::new(
         [
             "http://127.0.0.1:12379".into(),
