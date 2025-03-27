@@ -49,9 +49,9 @@ An [etcd](https://github.com/etcd-io/etcd) (API v3) client for Rust backed by [t
   - [ ] Snapshot
   - [ ] MoveLeader
 
-### Rust Version
+### MSRV
 
-- 1.1.0 to 1.2.2 - Rust 1.75
+- 1.1.0 to 1.2.3 - Rust 1.75
 
 ## Usage
 
