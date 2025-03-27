@@ -60,8 +60,6 @@ fi
 
 
 cat > "${DOCKER_COMPOSE_FILE}" <<EOF
-version: "3"
-
 services:
   etcd-1:
     image: ${IMAGE}

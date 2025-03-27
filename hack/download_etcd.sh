@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ETCD_VERSION=$1
-ETCD_VERSION=${ETCD_VERSION:-v3.5.2}
+ETCD_VERSION=${ETCD_VERSION:-v3.5.20}
 
 ARCH=$2
 ARCH=${ARCH:-linux-amd64}
