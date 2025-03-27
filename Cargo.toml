@@ -1,6 +1,6 @@
 [package]
 name = "ya-etcd-rs"
-version = "1.2.2"
+version = "1.2.3"
 authors = [
     "lodrem <jialun.cai@pm.me>",
     "fikers <fikersfan@gmail.com>",
