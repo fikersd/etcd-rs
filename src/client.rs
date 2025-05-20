@@ -505,7 +505,7 @@ impl WatchOp for Client {
                 if resp.canceled {
                     return Err(Error::WatchEvent(resp.cancel_reason));
                 }
-                assert!(resp.events.is_empty(), "received created event {:?}", resp);
+                assert!(resp.events.is_empty(), "received created event: {:?}", resp);
                 resp.watch_id
             }
 
