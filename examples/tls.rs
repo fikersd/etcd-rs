@@ -3,7 +3,7 @@ use ya_etcd_rs::{Client, ClientConfig, Endpoint, KeyValueOp};
 #[tokio::main]
 async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     let cli = Client::new(ClientConfig::new([
-        Endpoint::from("http://127.0.0.1:12379")
+        Endpoint::from("https://127.0.0.1:12379")
             .tls(
                 "etcd-1",
                 "./hack/certs/ca.pem",
@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
                 "./hack/certs/etcd-1-key.pem",
             )
             .await?,
-        Endpoint::from("http://127.0.0.1:22379")
+        Endpoint::from("https://127.0.0.1:22379")
             .tls(
                 "etcd-2",
                 "./hack/certs/ca.pem",
@@ -19,7 +19,7 @@ async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
                 "./hack/certs/etcd-2-key.pem",
             )
             .await?,
-        Endpoint::from("http://127.0.0.1:32379")
+        Endpoint::from("https://127.0.0.1:32379")
             .tls(
                 "etcd-3",
                 "./hack/certs/ca.pem",

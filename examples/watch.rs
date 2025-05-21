@@ -29,10 +29,10 @@ async fn main() -> Result<(), Box<ya_etcd_rs::Error>> {
     loop {
         match stream.inbound().await {
             WatchInbound::Ready(resp) => {
-                println!("receive event: {:?}", resp);
+                println!("receive event: {resp:?}");
             }
             WatchInbound::Interrupted(e) => {
-                eprintln!("encounter error: {:?}", e);
+                eprintln!("encounter error: {e:?}");
             }
             WatchInbound::Closed => {
                 println!("watch stream closed");
