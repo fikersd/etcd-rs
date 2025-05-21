@@ -1,7 +1,7 @@
 ETCD_CLUSTER_DOCKER_COMPOSE ?= etcd-docker-compose.yaml
 ETCD_CLUSTER_WITH_TLS ?= false
 ETCD_NODE ?= etcd-1
-ETCD_VERSION ?= v3.5.20
+ETCD_VERSION ?= v3.6.0
 
 TEST_CASE ?= test_basic
 
