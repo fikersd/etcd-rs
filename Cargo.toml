@@ -39,7 +39,7 @@ tls = ["tonic/tls-ring", "tokio/fs"]
 
 [dependencies]
 tonic = "0.13"
-prost = "0.13"
+prost = "0.14"
 tokio = "1.45"
 tokio-stream = "0.1"
 futures = "0.3"
