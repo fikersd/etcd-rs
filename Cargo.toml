@@ -38,7 +38,7 @@ default = ["tls"]
 tls = ["tonic/tls-ring", "tokio/fs"]
 
 [dependencies]
-tonic = "0.13"
+tonic = "0.14"
 prost = "0.13"
 tokio = "1.45"
 tokio-stream = "0.1"
