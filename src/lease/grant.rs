@@ -1,8 +1,8 @@
 use std::time::Duration;
 
+use crate::ResponseHeader;
 use crate::lease::LeaseId;
 use crate::proto::etcdserverpb;
-use crate::ResponseHeader;
 
 #[derive(Debug)]
 pub struct LeaseGrantRequest {
