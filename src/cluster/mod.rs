@@ -10,8 +10,8 @@ pub use member_update::{MemberUpdateRequest, MemberUpdateResponse};
 
 use std::future::Future;
 
-use crate::proto::etcdserverpb;
 use crate::Result;
+use crate::proto::etcdserverpb;
 
 pub trait ClusterOp {
     fn member_add<R>(&self, req: R) -> impl Future<Output = Result<MemberAddResponse>>

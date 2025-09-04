@@ -1,10 +1,10 @@
 use super::{
     DeleteRequest, DeleteResponse, KeyRange, PutRequest, PutResponse, RangeRequest, RangeResponse,
 };
-use crate::proto::etcdserverpb;
 use crate::ResponseHeader;
-use etcdserverpb::compare::{CompareResult, CompareTarget, TargetUnion};
+use crate::proto::etcdserverpb;
 use etcdserverpb::Compare;
+use etcdserverpb::compare::{CompareResult, CompareTarget, TargetUnion};
 
 #[derive(Debug)]
 pub struct TxnRequest {

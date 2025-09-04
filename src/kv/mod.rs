@@ -12,9 +12,9 @@ pub use txn::{TxnCmp, TxnOp, TxnOpResponse, TxnRequest, TxnResponse};
 
 use std::{future::Future, ops::Range};
 
+use crate::Result;
 use crate::lease::LeaseId;
 use crate::proto::mvccpb;
-use crate::Result;
 
 pub trait KeyValueOp {
     fn put<R>(&self, req: R) -> impl Future<Output = Result<PutResponse>>

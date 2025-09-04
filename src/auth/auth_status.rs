@@ -1,5 +1,5 @@
-use crate::proto::etcdserverpb;
 use crate::ResponseHeader;
+use crate::proto::etcdserverpb;
 
 #[derive(Debug, Default, Clone)]
 pub struct AuthStatusRequest {

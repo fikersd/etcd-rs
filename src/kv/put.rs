@@ -1,7 +1,7 @@
 use super::KeyValue;
+use crate::ResponseHeader;
 use crate::lease::LeaseId;
 use crate::proto::etcdserverpb;
-use crate::ResponseHeader;
 
 #[derive(Clone, Debug)]
 pub struct PutRequest {

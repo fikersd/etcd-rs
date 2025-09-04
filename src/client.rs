@@ -1,18 +1,17 @@
 use std::{future::Future, sync::Arc, time::Duration};
 
-use tokio::sync::{mpsc::channel, RwLock};
+use tokio::sync::{RwLock, mpsc::channel};
 use tokio_stream::wrappers::ReceiverStream;
 use tonic::{
+    Status,
     metadata::{Ascii, MetadataValue},
     transport::Channel,
-    Status,
 };
 
 use crate::{
-    auth::{AuthDisableRequest, AuthEnableRequest, AuthRoleListRequest},
-    proto::etcdserverpb::LeaseKeepAliveRequest,
-};
-use crate::{
+    AuthDisableResponse, AuthEnableResponse, AuthRoleAddRequest, AuthRoleAddResponse,
+    AuthRoleDeleteRequest, AuthRoleDeleteResponse, AuthRoleListResponse, AuthStatusRequest,
+    AuthStatusResponse, AuthenticateRequest, Error, Result,
     auth::{AuthOp, AuthenticateResponse},
     cluster::{
         ClusterOp, MemberAddRequest, MemberAddResponse, MemberListRequest, MemberListResponse,
@@ -33,9 +32,10 @@ use crate::{
         watch_client::WatchClient,
     },
     watch::{WatchCanceler, WatchCreateRequest, WatchOp, WatchStream},
-    AuthDisableResponse, AuthEnableResponse, AuthRoleAddRequest, AuthRoleAddResponse,
-    AuthRoleDeleteRequest, AuthRoleDeleteResponse, AuthRoleListResponse, AuthStatusRequest,
-    AuthStatusResponse, AuthenticateRequest, Error, Result,
+};
+use crate::{
+    auth::{AuthDisableRequest, AuthEnableRequest, AuthRoleListRequest},
+    proto::etcdserverpb::LeaseKeepAliveRequest,
 };
 
 static MAX_RETRY: i32 = 3;
