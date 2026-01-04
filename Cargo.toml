@@ -1,6 +1,6 @@
 [package]
 name = "ya-etcd-rs"
-version = "1.3.1"
+version = "1.3.2"
 authors = [
     "lodrem <jialun.cai@pm.me>",
     "fikers <fikersfan@gmail.com>",
@@ -39,16 +39,16 @@ tls = ["tonic/tls-ring", "tokio/fs"]
 
 [dependencies]
 futures = "0.3"
-http = "1.3"
+http = "1.4"
 prost = "0.14"
 thiserror = "2.0"
-tokio = "1.48"
+tokio = "1.49"
 tokio-stream = "0.1"
 tonic = "0.14"
 tonic-prost = "0.14"
 
 [dev-dependencies]
-tokio = { version = "1.48", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.49", features = ["macros", "rt-multi-thread"] }
 
 [build-dependencies]
 tonic-prost-build = "0.14"
