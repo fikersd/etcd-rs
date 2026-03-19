@@ -60,7 +60,7 @@ jobs:
           - macos-latest
           - windows-latest
         toolchain:
-          - "1.90"
+          - "1.94"
           - stable
           - nightly
     steps:
