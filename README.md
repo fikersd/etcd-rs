@@ -51,7 +51,7 @@ An [etcd](https://github.com/etcd-io/etcd) (API v3) client for Rust backed by [t
 
 ### MSRV
 
-- 1.1.0 to 1.3.3 - Rust 1.75
+- 1.1.0 to 1.3.4 - Rust 1.75
 
 ## Usage
 
