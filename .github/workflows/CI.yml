@@ -13,7 +13,7 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
-  PROTOC_VERSION: 3.23.4
+  PROTOC_VERSION: "34.1"
   RUSTFLAGS: "-D warnings"
 
 jobs:
@@ -38,10 +38,10 @@ jobs:
           - windows-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Install protoc
-        uses: taiki-e/install-action@v2
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
         with:
-          tool: protoc@${{ env.PROTOC_VERSION }}
+          version: ${{ env.PROTOC_VERSION }}
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
@@ -60,7 +60,7 @@ jobs:
           - macos-latest
           - windows-latest
         toolchain:
-          - "1.94"
+          - "1.95"
           - stable
           - nightly
     steps:
@@ -69,10 +69,10 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.toolchain }}
-      - name: Install protoc
-        uses: taiki-e/install-action@v2
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
         with:
-          tool: protoc@${{ env.PROTOC_VERSION }}
+          version: ${{ env.PROTOC_VERSION }}
       - uses: Swatinem/rust-cache@v2
       - name: Execute tests
         run: cargo test --workspace --all-features --all-targets
